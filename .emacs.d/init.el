@@ -44,5 +44,5 @@
 (if window-system
     (progn
       (tool-bar-mode 0) ; Hide tool bar
-      (set-frame-parameter nil 'alpha 85) ; Transparency
+      (set-frame-parameter nil 'alpha 90) ; Transparency
       ))
