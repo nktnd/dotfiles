@@ -1,0 +1,6 @@
+# This is Git's per-user configuration file.
+[user]
+	name = nktnd
+	email = nktnd.nt@gmail.com
+[core]
+	editor = vim
