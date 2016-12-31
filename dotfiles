@@ -42,7 +42,17 @@ deploy_dotfiles() {
 
 
 initialize() {
-    echo "Nothing to be done"
+    echo "Install Homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo "Install Fish"
+    brew install fish
+    echo "Install Emacs Mac Port"
+    brew tap railwaycat/emacsmacport
+    brew install emacs-mac --with-modern-icon
+    echo "Install Oh My Fish"
+    curl -L http://get.oh-my.fish | fish
+    echo "Change Fish theme"
+    omf install chain
 }
 
 
