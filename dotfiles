@@ -14,16 +14,22 @@ is_exclude_file() {
 
 deploy_dotfiles() {
     for i in .??*; do
+	set +e
 	is_exclude_file $i
-	if [ $? = 1 ]; then
+	ret=$?
+	set -e
+	if [ $ret = 1 ]; then
 	    continue
 	fi
 
 	for f in `find $i -type f`; do
 	    filename=`basename $f`
 
+	    set +e
 	    is_exclude_file $filename
-	    if [ $? = 1 ]; then
+	    ret=$?
+	    set -e
+	    if [ $ret = 1 ]; then
 		continue
 	    fi
 
