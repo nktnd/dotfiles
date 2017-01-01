@@ -8,18 +8,25 @@
 ;; Cask
 (require 'cask)
 (cask-initialize)
-
 (pallet-mode t)
-;; User interface
+
+;; Display settings
+(load-theme 'zenburn t)
 (column-number-mode t) ; Show column number in mode bar
 (line-number-mode t) ; Show column number in mode bar
 ;; (global-linum-mode t) ; Show line number on each line
 (show-paren-mode t) ; Highlight corresponding parenthesis
 (save-place-mode 1) ; Save cursor position
+
+;; Scroll settings
 (setq scroll-conservatively 1) ; Scroll by line
 (setq scroll-margin 5) ; Scroll before cursor reaches top/bottom of frame
 (setq next-screen-context-lines 5) ; Continuity lines for full screen scroll
-(icomplete-mode 1) ; Minibuffer completion
+
+;; Minibuffer completion
+(icomplete-mode 1)
+
+;; VCS related settings
 (setq vc-follow-symlinks t) ; Allow to load vcs-controlled symlink files
 (setq auto-revert-check-vc-info t) ; Auto revert when vcs updates files
 
@@ -46,7 +53,7 @@
 				  (left . 200)
 				  (width . 120)
 				  (height . 50)))
-      ;; Font setting
+      ;; Font
       (custom-set-faces
        '(default ((t (:family "SF Mono" :foundry "nil" :slant normal :weight normal :height 120 :width normal)))))
       ))
@@ -67,5 +74,17 @@
 (if window-system
     (progn
       (tool-bar-mode 0) ; Hide tool bar
-      (set-frame-parameter nil 'alpha 90) ; Transparency
-      ))
+      (set-frame-parameter nil 'alpha 95) ; Transparency
+       ))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (zenburn-theme pallet))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "SF Mono" :foundry "nil" :slant normal :weight normal :height 120 :width normal)))))
