@@ -1,4 +1,15 @@
-;;; OS independent settings
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
+;; OS independent settings
+;; Cask
+(require 'cask)
+(cask-initialize)
+
+(pallet-mode t)
 ;; User interface
 (column-number-mode t) ; Show column number in mode bar
 (line-number-mode t) ; Show column number in mode bar
@@ -24,7 +35,7 @@
       kept-new-versions 6
       kept-old-versions 2)
 
-;;; OS specific settings
+;; OS specific settings
 ;; Mac
 (if (eq system-type 'darwin)
     (progn
@@ -52,7 +63,7 @@
     (add-hook 'mac-selected-keyboard-input-source-change-hook
               'my-mac-selected-keyboard-input-source-chage-function))
 
-;;; GUI specific settings
+;; GUI specific settings
 (if window-system
     (progn
       (tool-bar-mode 0) ; Hide tool bar
