@@ -39,6 +39,18 @@
       (custom-set-faces
        '(default ((t (:family "SF Mono" :foundry "nil" :slant normal :weight normal :height 120 :width normal)))))
       ))
+;; Automatic ascii mode for mini buffer
+(when (fboundp 'mac-auto-ascii-mode) (mac-auto-ascii-mode 1))
+;; Change cursor color when Japanese input method is enabled
+  (when (fboundp 'mac-input-source)
+    (defun my-mac-selected-keyboard-input-source-chage-function ()
+      "Cursor color settings: dim gray for English and brown for Japanse"
+      (let ((mac-input-source (mac-input-source)))
+        (set-cursor-color
+         (if (string-match "\\.ABC$" mac-input-source)
+             "dim gray" "brown"))))
+    (add-hook 'mac-selected-keyboard-input-source-change-hook
+              'my-mac-selected-keyboard-input-source-chage-function))
 
 ;;; GUI specific settings
 (if window-system
